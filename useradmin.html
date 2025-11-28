@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Admin Panel - TataPlay ISP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="useradmin.css" />
+
+</head>
+<body>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <nav class="user-topbar">
+    <!-- <div class="logo-pill">Wi-5</div> -->
+    <span class="brand">Smart Wi-5</span>
+    <div class="user-menu">
+      <!-- <span class="username">Akshay Kate</span> -->
+       <li class="nav-item d-flex align-items-center ms-auto" id="auth-links">
+                        </li>
+      <button class="hamburger" id="hamburgerBtn">
+        <span></span>
+      </button>
+    </div>
+  </nav>
+  
+  <div class="dashboard">
+    <aside class="sidebar" id="sidebar">
+      <ul class="nav-list">
+        <li><a href="#" class="nav-link active">🏠 Account Home</a></li>
+        <li><a href="#" class="nav-link">📶 Usage</a></li>
+        <li><a href="#" class="nav-link">💳 Recharge</a></li>
+        <li><a href="#" class="nav-link">📝 Profile</a></li>
+        <li><a href="#" class="nav-link">🎫 Tickets</a></li>
+        <!-- <li><a href="index.html" class="nav-link">🚪 Logout</a></li> -->
+      </ul>
+    </aside>
+    <main class="main-content">
+      <section class="card user-info">
+        <h2>Your Account</h2>
+        <div class="info-grid">
+          <div>Plan: <span id="plan">1 Gbps Entertainment</span></div>
+          <div>Expiry: <span id="expiry">28 Dec 2025</span></div>
+          <div>Status: <span class="badge active">Active</span></div>
+          <div>Data Used: <span id="usage">86 GB</span></div>
+        </div>
+        <button class="btn-primary" onclick="showToast('Account details updated!')">Update Profile</button>
+      </section>
+      <section class="card recharge">
+        <h2>Recharge / Change Plan</h2>
+        <form id="rechargeForm">
+          <label for="planSelect">Select Plan:</label>
+          <select id="planSelect">
+            <option>100 Mbps Unlimited</option>
+            <option>300 Mbps Entertainment</option>
+            <option>1 Gbps Ultra</option>
+          </select>
+          <button type="submit" class="btn-primary">Recharge Now</button>
+        </form>
+      </section>
+      <section class="card tickets">
+        <h2>Your Support Tickets</h2>
+        <table>
+          <thead>
+            <tr><th>Ticket</th><th>Status</th><th>Date</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>#12457</td><td><span class="badge">Resolved</span></td><td>Nov 21</td></tr>
+            <tr><td>#12498</td><td><span class="badge active">Open</span></td><td>Nov 26</td></tr>
+          </tbody>
+        </table>
+      </section>
+      <div class="toast" id="toast">
+        <span>✅</span>
+        <span id="toastText"></span>
+      </div>
+    </main>
+  </div>
+  <script>
+    // Hamburger menu mobile logic
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const backdrop = document.getElementById("sidebarBackdrop");
+    function toggleSidebar(open) {
+      if (open) {
+        sidebar.classList.add("open");
+        backdrop.classList.add("show");
+      } else {
+        sidebar.classList.remove("open");
+        backdrop.classList.remove("show");
+      }
+    }
+    hamburgerBtn.addEventListener("click", () => toggleSidebar(true));
+    backdrop.addEventListener("click", () => toggleSidebar(false));
+    // close sidebar on navigation link click in mobile
+    document.querySelectorAll(".sidebar .nav-link").forEach(link=>{
+      link.addEventListener("click",()=>toggleSidebar(false));
+    });
+
+    // Toast logic for feedback
+    function showToast(msg) {
+      const toast = document.getElementById("toast");
+      const toastText = document.getElementById("toastText");
+      toastText.textContent = msg;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2200);
+    }
+    // Recharge demo form
+    document.getElementById("rechargeForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      showToast("Recharge request submitted!");
+    });
+  </script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const authLinksContainer = document.getElementById('auth-links');
+            const name = localStorage.getItem("name");
+            
+            if (name) {
+                // User is signed in: Display Username and Logout button
+                authLinksContainer.innerHTML = `
+                    <span class="welcome-msg">${name}</span>
+                    <a class="nav-link" href="index.html" id="logout-btn">Logout</a>
+                `;
+
+                // Add event listener for logout
+                // document.getElementById('logout-btn').addEventListener('click', function(e) {
+                //     e.preventDefault();
+                //     // Clear all user-related data from localStorage
+                //     localStorage.removeItem('name');
+                //     localStorage.removeItem('email');
+                //     localStorage.removeItem('password');
+                //     // Redirect to the sign-in page
+                //     window.location.href = "login.html";
+                // });
+
+            } else {
+                // User is not signed in: Display Sign In and Sign Up links
+                authLinksContainer.innerHTML = `
+                    <a class="nav-link" href="login.html">SignIn</a>
+                    <a class="nav-link" href="CreateAccount.html">SignUp</a>
+                `;
+            }
+        });
+    </script>
+
+</body>
+</html>

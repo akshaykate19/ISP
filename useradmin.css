@@ -1,0 +1,323 @@
+:root {
+  --tp-purple: #5e2ced;
+  --tp-pink: #ff2e93;
+  --tp-dark: #111827;
+  --tp-gray: #444;
+  --tp-bg: #f3f4f6;
+  --card-bg: #fff;
+  --radius-lg: 16px;
+  --shadow: 0 8px 16px rgba(15,23,42,.08);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: var(--tp-dark);
+  background: radial-gradient(circle at top left, #f5f3ff, #eef2ff);
+  overflow-x: hidden;
+}
+
+.user-topbar {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(90deg, var(--tp-purple), var(--tp-pink));
+  color: #fff;
+  padding: 10px 16px;
+  gap: 14px;
+}
+
+.logo-pill {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  color: var(--tp-purple);
+  font-weight: 700;
+  font-size: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: .5px;
+}
+
+.user-menu {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.username {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.hamburger {
+  display: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--tp-bg);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(94,44,237,0.14);
+}
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+  display: block;
+  position: relative;
+  width: 19px;
+  height: 3px;
+  border-radius: 99px;
+  background: var(--tp-purple);
+}
+.hamburger span::before,
+.hamburger span::after {
+  content:"";
+  position: absolute;
+  left:0;
+}
+.hamburger span::before { top: -7px; }
+.hamburger span::after { top: 7px; }
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  background: var(--tp-dark);
+  color: #e5e7eb;
+  padding: 22px 10px 0;
+  width: 145px;
+  min-width: 99px;
+  transition: transform .22s;
+  z-index: 21;
+  height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+}
+.sidebar-backdrop {
+  display: none;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link {
+  display: block;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 8px 0;
+  margin: 2px 0;
+  border-radius: 7px;
+  transition: background 0.18s;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav-link.active, .nav-link:hover {
+  background: linear-gradient(90deg, var(--tp-purple), var(--tp-pink));
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  padding: 22px 5vw;
+  background: var(--tp-bg);
+  min-width: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 18px 10px 14px 10px;
+  margin: 0 auto 19px auto;
+  max-width: 370px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.user-info .info-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+  margin: 12px 0 14px;
+  font-size: 14px;
+}
+
+.badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: var(--tp-purple);
+  font-size: 12px;
+  vertical-align: middle;
+}
+
+.badge.active {
+  background: #d1fae5;
+  color: #16a34a;
+}
+
+.btn-primary {
+  padding: 7px 16px;
+  background: linear-gradient(90deg, var(--tp-purple), var(--tp-pink));
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-top: 7px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(94,44,237,.16);
+  transition: background .2s;
+}
+.btn-primary:active { background: var(--tp-purple); }
+
+.recharge form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.recharge select {
+  padding: 7px 8px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  font-size: 13px;
+}
+
+.tickets table {
+  width: 100%;
+  font-size: 13px;
+  border-collapse: collapse;
+}
+.tickets th, .tickets td {
+  padding: 6px 7px;
+  border-bottom: 1px solid #eef2ff;
+  text-align: left;
+}
+
+.toast {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  background: var(--tp-dark);
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 999px;
+  box-shadow: 0 3px 12px rgba(94,44,237,.22);
+  font-size: 13px;
+  display: none;
+  align-items: center;
+  gap: 6px;
+  z-index: 50;
+}
+.toast.show {
+  display: flex;
+  animation: fadeInOut 2s ease forwards;
+}
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(10px);}
+  10%,80% { opacity: 1; transform: translateY(0);}
+  100% { opacity: 0; transform: translateY(10px);}
+}
+
+@media (max-width: 650px) {
+  .user-topbar {
+    flex-wrap: wrap;
+    padding: 10px 7px 7px 9px;
+    min-width: 0;
+  }
+  .dashboard {
+    flex-direction: column;
+    width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+  }
+  .main-content {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: 0;
+    padding: 12px 2vw;
+    box-sizing: border-box;
+  }
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 135px;
+    height: 100vh;
+    transform: translateX(-100%);
+    box-shadow: 6px 0 14px rgba(15,23,42,0.09);
+    z-index: 21;
+    padding: 20px 8px 0 8px;
+    min-width: 0;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,23,42,0.38);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s;
+    z-index: 20;
+  }
+  .sidebar-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .card {
+    margin: 0 0 16px 0;
+    width: 99vw;
+    max-width: 99vw;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .user-info .info-grid {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .hamburger {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 399px) {
+  .main-content {
+    padding: 4px 1vw;
+  }
+  .card {
+    padding: 7px 2vw 10px 2vw;
+    margin-bottom: 12px;
+  }
+}

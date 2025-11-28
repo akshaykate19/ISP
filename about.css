@@ -1,0 +1,85 @@
+.about-smart-wi5 {
+  background: linear-gradient(135deg, #f6f0ff 0%, #eae4fc 50%, #ffffff 100%);
+  padding: 60px 0 40px 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.about-smart-wi5 .about-container {
+  max-width: 930px;
+  margin: auto;
+  padding: 0 24px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px 0 rgba(116, 35, 224, 0.13);
+  text-align: center;
+}
+.about-smart-wi5 h2 {
+  font-size: 2.2rem;
+  color: #281259;
+  margin-bottom: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.about-smart-wi5 h2 span {
+  color: #ba36ff;
+  background: linear-gradient(50deg,#eb85ff,#5a30ec);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.about-smart-wi5 p {
+  color: #6d4c85;
+  font-size: 1.14rem;
+  margin-bottom: 24px;
+  line-height: 1.8;
+}
+.about-smart-wi5 .about-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  margin-bottom: 18px;
+}
+.about-smart-wi5 .feature-box {
+  flex: 1 1 210px;
+  min-width: 210px;
+  background: #faf8ff;
+  border: 1.5px solid #e2d8fa;
+  border-radius: 14px;
+  padding: 24px 16px;
+  box-shadow: 0px 2px 16px 0 rgba(186, 54, 255, 0.07);
+  transition: box-shadow 0.2s;
+}
+.about-smart-wi5 .feature-box:hover {
+  box-shadow: 0 4px 24px 0 rgba(116, 35, 224, 0.13);
+}
+.about-smart-wi5 .feature-box i {
+  font-size: 2.1rem;
+  color: #ba36ff;
+  margin-bottom: 8px;
+}
+.about-smart-wi5 .feature-box h3 {
+  color: #5128a7;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.about-smart-wi5 .feature-box p {
+  font-size: 0.98rem;
+  color: #8568a0;
+  margin: 0;
+}
+.about-smart-wi5 .about-note {
+  margin-top: 30px;
+  color: #5227be;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .about-smart-wi5 .about-features {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .about-smart-wi5 .feature-box {
+    min-width: unset;
+  }
+}

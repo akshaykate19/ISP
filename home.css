@@ -1,0 +1,117 @@
+body, html 
+{
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+:root {
+  --primary: #2d0c45;    
+  --highlight: #0071e3;    
+  --accent: #ff1693;       
+  --bg: #f0f4f8;
+  --card-bg: #fff;
+  --field-bg: #f4f7fb;
+}
+
+.navbar {
+  background: #34105a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  min-height: 64px;
+}
+
+.nav-logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu a {
+  color: #fff;
+  font-size: 1.08rem;
+  font-weight: 600;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s;
+  text-decoration: none;
+  position: relative;
+}
+.nav-btn {
+  background: #ff1693;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-left: 20px;
+  box-shadow: 0 2px 8px rgba(255,22,147,0.18);
+  transition: background 0.2s;
+}
+
+.nav-btn:hover {
+  background: #d10070;
+}
+
+/* Mobile view के लिए media query */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none; /* मूल nav links छुपाएं */
+    flex-direction: column;
+    background: #34105a;
+    position: absolute;
+    top: 64px;
+    right: 0;
+    width: 100%;
+  }
+
+  .nav-menu.active {
+    display: flex; /* जैसे ही active class आए, दिखाएं */
+  }
+
+  /* Check Avaibility button मोबाइल में छुपाएं */
+  .nav-btn {
+    display: none;
+  }
+
+  /* Hamburger button visible */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+  }
+
+  /* Hamburger bars */
+  .bar {
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+}
+
+
+
+.hamburger { display: none; }
+
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+}
+
+
+
+

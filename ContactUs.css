@@ -1,0 +1,121 @@
+body {
+    font-family: "Roboto", Arial, sans-serif;
+    background: #e6e4ea;
+    margin: 0;
+}
+
+.contact-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(42,42,95,0.15);
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.contact-info, .contact-form-section {
+    flex: 1 1 400px;
+    padding: 32px;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #7e39e2 30%, #ec225d 100%);
+    color: #fff;
+    border-radius: 12px 0 0 12px;
+    min-width: 300px;
+}
+
+.contact-info h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.contact-info ul {
+    padding: 0;
+    list-style: none;
+    margin: 16px 0 0 0;
+}
+
+.contact-info li {
+    margin-bottom: 14px;
+    font-size: 1.06rem;
+    color: #fff;
+}
+
+.contact-info .highlight {
+    color: #fff; /* Ensures important info is white and visible */
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.contact-form-section {
+    background: #fff;
+    border-radius: 0 12px 12px 0;
+    min-width: 300px;
+}
+
+.contact-form h2 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+    color: #2a2a5f;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 6px;
+    color: #373684;
+    font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 14px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    font-size: 1rem;
+    background: #f8f8fb;
+    transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #7e39e2;
+    outline: none;
+}
+
+.contact-form button {
+    display: block;
+    width: 100%;
+    background: linear-gradient(90deg, #ec225d, #7e39e2);
+    color: #fff;
+    border: none;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: linear-gradient(90deg, #7e39e2, #ec225d);
+}
+
+@media (max-width: 700px) {
+    .contact-wrapper {
+        flex-direction: column;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .contact-info,
+    .contact-form-section {
+        border-radius: 0;
+        min-width: unset;
+        padding: 20px;
+    }
+}

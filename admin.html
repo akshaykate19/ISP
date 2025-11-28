@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Wi-5 Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-pill">SM</div>
+        <div class="sidebar-title">
+          <span>Smart Wi-5</span>
+          <span>Admin Console</span>
+        </div>
+      </div>
+
+      <div class="nav-section-label">Overview</div>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#" class="nav-link active">
+            <span class="icon">🏠</span>
+            <span>Dashboard</span>
+            <span class="nav-badge">Live</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <span class="icon">🌐</span>
+            <span>Network Health</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-section-label">Management</div>
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a href="#customers-card" class="nav-link">
+            <span class="icon">👤</span>
+            <span>Subscribers</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#plans-card" class="nav-link">
+            <span class="icon">📦</span>
+            <span>Plans</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#tickets-card" class="nav-link">
+            <span class="icon">🎫</span>
+            <span>Tickets</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        Control panel connected
+        <span class="status-pill">Core POP · OK</span>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="topbar">
+        <button class="hamburger" id="hamburgerBtn">
+          <span></span>
+        </button>
+
+        <div>
+          <div class="page-title">Admin Dashboard</div>
+          <div class="page-sub">
+            Monitor TataPlay-style ISP KPIs and manage customers.
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <div class="search-input">
+            <input type="text" placeholder="Search subscriber..." />
+            <span>⌕</span>
+          </div>
+          <div class="user-chip">
+            <div class="user-avatar">AK</div>
+            <div>
+              <div class="user-name">Akshay</div>
+              <div class="user-role">Super Admin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <!-- Hero stats -->
+        <section class="card col-5">
+          <div class="card-hero-bg"></div>
+          <div class="card-header">
+            <div class="card-title">
+              Live Network Load
+              <span class="card-title-pill">Now</span>
+            </div>
+            <span class="mini-label">Last 5 min</span>
+          </div>
+          <div class="metric-value" id="loadMetric">72%</div>
+          <div class="metric-chip">
+            ▲ <span id="loadDelta">+4.2%</span> vs avg
+          </div>
+          <p class="card-sub">
+            Aggregate traffic across all ONTs connected to your core router.
+          </p>
+          <div class="status-dots">
+            <div class="status-dot">
+              <div class="dot green"></div>
+              23 POPs healthy
+            </div>
+            <div class="status-dot">
+              <div class="dot yellow"></div>
+              2 minor alerts
+            </div>
+            <div class="status-dot">
+              <div class="dot red"></div>
+              0 outages
+            </div>
+          </div>
+        </section>
+
+        <!-- Plan distribution chart -->
+        <section class="card col-7" id="plans-card">
+          <div class="card-header">
+            <div class="card-title">
+              Plan Distribution
+              <span class="card-title-pill">Subscribers</span>
+            </div>
+            <span class="mini-label">Auto-refresh every 30s</span>
+          </div>
+          <p class="card-sub">
+            Visual split of users on 100 Mbps, 300 Mbps and 1 Gbps plans.
+          </p>
+
+          <div class="bar-chart" id="planBars">
+            <div style="flex: 1; text-align: center;">
+              <div class="bar">
+                <div class="bar-fill" style="height: 65%;"></div>
+              </div>
+              <div class="bar-label">100 Mbps</div>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <div class="bar">
+                <div class="bar-fill" style="height: 45%;"></div>
+              </div>
+              <div class="bar-label">300 Mbps</div>
+            </div>
+            <div style="flex: 1; text-align: center;">
+              <div class="bar">
+                <div class="bar-fill" style="height: 28%;"></div>
+              </div>
+              <div class="bar-label">1 Gbps</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- KPI cards -->
+        <section class="card col-3">
+          <div class="card-header">
+            <div class="card-title">Active Subscribers</div>
+          </div>
+          <div class="metric-value" id="subsCount">4,812</div>
+          <div class="metric-chip">▲ +58 today</div>
+          <p class="card-sub">Accounts currently in “active” status.</p>
+        </section>
+
+        <section class="card col-3">
+          <div class="card-header">
+            <div class="card-title">Online ONTs</div>
+          </div>
+          <div class="metric-value" id="ontCount">4,537</div>
+          <div class="metric-chip danger">▼ -23 offline</div>
+          <p class="card-sub">Devices reachable from this NOC.</p>
+        </section>
+
+        <section class="card col-3">
+          <div class="card-header">
+            <div class="card-title">Avg Latency (ms)</div>
+          </div>
+          <div class="metric-value" id="latencyValue">9.4</div>
+          <div class="metric-chip">▲ +0.6 vs 24h</div>
+          <p class="card-sub">Ping to core upstream gateway.</p>
+        </section>
+
+        <!-- Recent subscribers -->
+        <section class="card col-7" id="customers-card">
+          <div class="card-header">
+            <div class="card-title">
+              Recent Subscribers
+              <span class="card-title-pill">Last 24h</span>
+            </div>
+          </div>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>City</th>
+                  <th>Plan</th>
+                  <th>Status</th>
+                  <th>ONT</th>
+                </tr>
+              </thead>
+              <tbody id="subscribersTable">
+                <tr>
+                  <td>Rohan Sharma</td>
+                  <td>Mumbai</td>
+                  <td>300 Mbps</td>
+                  <td><span class="tag">Activated</span></td>
+                  <td>Online</td>
+                </tr>
+                <tr>
+                  <td>Priya Patil</td>
+                  <td>Pune</td>
+                  <td>100 Mbps</td>
+                  <td><span class="tag warn">KYC pending</span></td>
+                  <td>Online</td>
+                </tr>
+                <tr>
+                  <td>Aditya Singh</td>
+                  <td>Bangalore</td>
+                  <td>1 Gbps</td>
+                  <td><span class="tag">Activated</span></td>
+                  <td>Online</td>
+                </tr>
+                <tr>
+                  <td>Neha Gupta</td>
+                  <td>Delhi</td>
+                  <td>100 Mbps</td>
+                  <td><span class="tag danger">Payment due</span></td>
+                  <td>Offline</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Create / update subscriber -->
+        <section class="card col-5" id="tickets-card">
+          <div class="card-header">
+            <div class="card-title">
+              Quick Subscriber Action
+              <span class="card-title-pill">Demo</span>
+            </div>
+          </div>
+          <p class="card-sub">
+            Use this form to simulate activation or plan changes for a user.
+          </p>
+
+          <form id="subscriberForm">
+            <div class="form-grid">
+              <div class="field">
+                <label for="fullName">Full name</label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Eg. Akshay Kate"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="city">City</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Eg. Thane"
+                  required
+                />
+              </div>
+              <div class="field">
+                <label for="plan">Plan</label>
+                <select id="plan" name="plan" required>
+                  <option value="100 Mbps">100 Mbps Unlimited</option>
+                  <option value="300 Mbps">300 Mbps Entertainment</option>
+                  <option value="1 Gbps">1 Gbps Ultra</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="action">Action</label>
+                <select id="action" name="action" required>
+                  <option value="Activate">Activate</option>
+                  <option value="Upgrade">Upgrade</option>
+                  <option value="Suspend">Suspend</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="btn-row">
+              <button type="submit" class="btn-primary">
+                Apply change
+              </button>
+              <button type="button" class="btn-ghost" id="resetBtn">
+                Reset
+              </button>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast" id="toast">
+    <span>✅</span>
+    <span id="toastText">Action applied</span>
+  </div>
+
+  <script>
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const sidebar = document.getElementById("sidebar");
+    const backdrop = document.getElementById("sidebarBackdrop");
+
+    function toggleSidebar(open) {
+      if (open) {
+        sidebar.classList.add("open");
+        backdrop.classList.add("show");
+      } else {
+        sidebar.classList.remove("open");
+        backdrop.classList.remove("show");
+      }
+    }
+
+    hamburgerBtn.addEventListener("click", () => toggleSidebar(true));
+    backdrop.addEventListener("click", () => toggleSidebar(false));
+
+    // Toast helper
+    const toast = document.getElementById("toast");
+    const toastText = document.getElementById("toastText");
+
+    function showToast(message) {
+      toastText.textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 2400);
+    }
+
+    // Form logic: add a fake subscriber row
+    const form = document.getElementById("subscriberForm");
+    const resetBtn = document.getElementById("resetBtn");
+    const subsTable = document.getElementById("subscribersTable");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const fullName = document.getElementById("fullName").value.trim();
+      const city = document.getElementById("city").value.trim();
+      const plan = document.getElementById("plan").value;
+      const action = document.getElementById("action").value;
+
+      if (!fullName || !city) {
+        showToast("Please fill all required fields");
+        return;
+      }
+
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td>${fullName}</td>
+        <td>${city}</td>
+        <td>${plan}</td>
+        <td><span class="tag">${
+          action === "Suspend" ? "Suspended" : "Activated"
+        }</span></td>
+        <td>${action === "Suspend" ? "Offline" : "Online"}</td>
+      `;
+      subsTable.prepend(tr);
+
+      showToast(`Subscriber ${action}d successfully`);
+      form.reset();
+    });
+
+    resetBtn.addEventListener("click", () => {
+      form.reset();
+      showToast("Form reset");
+    });
+
+    // Tiny random animation for top metrics
+    function randomFloat(base, range) {
+      return (base + (Math.random() - 0.5) * range).toFixed(1);
+    }
+
+    function pulseMetrics() {
+      const load = document.getElementById("loadMetric");
+      const delta = document.getElementById("loadDelta");
+      const latency = document.getElementById("latencyValue");
+      const ont = document.getElementById("ontCount");
+
+      const newLoad = randomFloat(68, 8);
+      load.textContent = newLoad + "%";
+      delta.textContent = (Math.random() * 6).toFixed(1) + "%";
+
+      latency.textContent = randomFloat(8.5, 2);
+      ont.textContent = (4530 + Math.floor(Math.random() * 20)).toLocaleString();
+    }
+
+    setInterval(pulseMetrics, 7000);
+  </script>
+</body>
+</html>

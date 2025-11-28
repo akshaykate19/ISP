@@ -1,0 +1,123 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #f3e9ff 0%, #e0c8ff 100%);
+}
+.create-account-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.create-account-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 40px rgba(90,18,160,0.17);
+  max-width: 340px;
+  width: 98%;
+  padding: 24px 16px 22px 16px;
+  text-align: center;
+  position: relative;
+}
+.create-account-container h2 {
+  color: #8427da;
+  font-weight: 800;
+  margin-bottom: 7px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+.create-account-container .subtitle {
+  color: #5c2d91;
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.create-account-container .subtitle span {
+  color: #ba36ff;
+  font-weight: 700;
+}
+.create-account-form .form-group {
+  text-align: left;
+  margin-bottom: 18px;
+}
+.create-account-form label {
+  color: #43095b;
+  font-size: 1.01rem;
+  margin-bottom: 6px;
+  font-weight: 600;
+  display: block;
+}
+.create-account-form label i {
+  margin-right: 7px;
+  color: #ba36ff;
+}
+.create-account-form input {
+  width: 100%;
+  padding: 9px 9px;
+  border-radius: 8px;
+  border: 1.4px solid #bb8af7;
+  font-size: 0.97rem;
+  background: #faf5fe;
+  transition: border-color 0.2s;
+}
+.create-account-form input:focus {
+  border-color: #8427da;
+  outline: none;
+  background: #f6edff;
+}
+.btn-create {
+  background: linear-gradient(50deg, #ba36ff 60%, #5a30ec 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 0;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(116,35,224,0.09);
+  margin-top: 12px;
+  transition: background 0.2s;
+}
+.btn-create:hover {
+  background: linear-gradient(50deg, #5a30ec, #ba36ff);
+}
+.login-link {
+  margin-top: 22px;
+  font-size: 1rem;
+  color: #6d4c85;
+}
+.login-link a {
+  color: #8427da;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .create-account-container {
+    max-width: 85vw !important;
+    width: 85vw !important;
+    padding: 4px 2vw 4px 2vw !important;
+    font-size: 13px;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .create-account-form input {
+    font-size: 0.91rem;
+    padding: 7px 5px;
+  }
+  .btn-create {
+    padding: 4px 0;
+    font-size: 0.9 3rem;
+    border-radius: 7px;
+  }
+  .create-account-bg {
+    min-height: 120vh;
+ }
+
+ .create-account-container h2 {
+  font-weight: 800;
+  font-size: 1rem;
+}
+}
